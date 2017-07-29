@@ -2,13 +2,15 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Vuetify from 'vuetify'
+
+import App from './app.vue'
 import Home from './pages/Home.vue'
 import Register from './pages/Register.vue'
 import Login from './pages/Login.vue'
 
-import App from './app.vue'
-
 Vue.use(VueRouter)
+Vue.use(Vuetify)
 
 const routes = [
   { path: '/', component: Home },
