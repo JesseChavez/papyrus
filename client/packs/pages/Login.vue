@@ -23,7 +23,7 @@
       <div>
         <v-btn dark large>Submit</v-btn>
       </div>
-  </div>
+  </form>
 </template>
 
 <script>

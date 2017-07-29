@@ -68,7 +68,8 @@ export default {
       items: [
         { title: 'Home', icon: 'dashboard', path: '/' },
         { title: 'Register', icon: 'person_add', path: '/register' },
-        { title: 'Login', icon: 'vpn_key', path: '/login' }
+        { title: 'Login', icon: 'vpn_key', path: '/login' },
+        { title: 'Documents', icon: 'insert_drive_file', path: '/documents' }
       ],
       mini: false,
       right: null
