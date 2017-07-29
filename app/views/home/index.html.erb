@@ -1,7 +1,9 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-
 <% content_for :client_assets do %>
   <%= stylesheet_pack_tag 'app' %>
   <%= javascript_pack_tag 'main' %>
+<% end %>
+
+<%= content_tag :div, id: 'app', data: @data.to_json do %>
+  <!-- This div tag is replaced by the  vue SPA -->
+  <!-- preliminary data is passed to the client -->
 <% end %>

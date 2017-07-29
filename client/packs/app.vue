@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  props: ['props'],
   data: function () {
     return {
       message: "Hello Vue!"
