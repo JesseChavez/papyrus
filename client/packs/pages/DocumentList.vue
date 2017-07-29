@@ -62,6 +62,9 @@
           },
         ]
       }
+    },
+    mounted() {
+     console.log('fetching data ......')
     }
   }
 </script>
