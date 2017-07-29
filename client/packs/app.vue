@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    <p>
+    <router-link to="/">Home</router-link>
+    <router-link to="/register">register</router-link>
+    <router-link to="/login"> log in </router-link>
+    </p>
+    <hr>
+    <router-view></router-view>
   </div>
 </template>
 
