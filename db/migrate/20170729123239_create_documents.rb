@@ -5,7 +5,7 @@ class CreateDocuments < ActiveRecord::Migration[5.1]
       t.string :category
       t.string :name
       t.text :remarks
-      t.string :file_name
+      t.string :pdf_file
       t.string :url
       t.string :title
       t.text :meta_data
