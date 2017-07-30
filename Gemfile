@@ -21,6 +21,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'webpacker', '~> 2.0'
 
+gem 'shrine'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
