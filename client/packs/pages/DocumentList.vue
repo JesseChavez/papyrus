@@ -32,39 +32,27 @@
           {
             text: '#',
             align: 'left',
-            sortable: false,
+            sortable: true,
             value: 'id'
           },
           { text: 'Name', value: 'name' },
           { text: 'Title', value: 'title' },
           { text: '', value: 'action' }
         ],
-        items: [
-          {
-            id: 1,
-            name: 'Frozen Yogurt',
-            title: 'Random title',
-          },
-          {
-            id: 2,
-            name: 'Frozen Yogurt 2',
-            title: 'Random title 2',
-          },
-          {
-            id: 3,
-            name: 'Frozen Yogurt 3',
-            title: 'Random title 3',
-          },
-          {
-            id: 4,
-            name: 'Frozen Yogurt 4',
-            title: 'Random title 4',
-          },
-        ]
+        items: []
       }
     },
     mounted() {
+      var that = this
      console.log('fetching data ......')
+      axios.get('/documents', {
+        params: {}
+      }).then(function (response) {
+        console.log(response);
+        that.items = response.data
+      }).catch(function (error) {
+        console.log(error);
+      });
     }
   }
 </script>
