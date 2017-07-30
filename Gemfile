@@ -23,6 +23,10 @@ gem 'webpacker', '~> 2.0'
 
 gem 'shrine'
 
+gem 'ffi-rzmq', '~> 2.0.4'
+
+gem 'pdf-reader'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
