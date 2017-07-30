@@ -16,6 +16,10 @@ class DocumentsController < ApplicationController
     @document.user_id = 1
 
     if @document.save
+      doc = DocumentParser.new(@document)
+      doc.process
+      puts "-----: #{doc.summary}"
+      puts "-----: #{doc.title}"
       render json: @document.to_json, status: :ok
     else
       render json: @document.errors, status: :unprocessable_entity

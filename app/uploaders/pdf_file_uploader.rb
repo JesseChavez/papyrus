@@ -1,5 +1,4 @@
 class PdfFileUploader < Shrine
-  # plugins and uploading logic
   plugin :activerecord
   plugin :determine_mime_type
   plugin :logging, logger: Rails.logger
