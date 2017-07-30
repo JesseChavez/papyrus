@@ -3,6 +3,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Vuetify from 'vuetify'
+// import axios from 'axios'
+window.axios = require('axios')
+
+let token = document.getElementsByName('csrf-token')[0].getAttribute('content')
+axios.defaults.headers.common['X-CSRF-Token'] = token
+axios.defaults.headers.common['Accept'] = 'application/json'
 
 import App from './app.vue'
 import Home from './pages/Home.vue'
