@@ -15,7 +15,6 @@
           <td class="text-xs-right">{{ props.item.title }}</td>
           <td class="text-xs-right">
             <v-btn small primary :to="'/documents/' + props.item.id">View</v-btn>
-            <v-btn small warning :to="'/documents/' + props.item.id + '/edit'">Edit</v-btn>
           </td>
         </template>
       </v-data-table>

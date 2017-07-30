@@ -7,7 +7,6 @@
       {{ dataset.summary }}
     </blockquote>
     <div>
-      <v-btn dark large type="submit">Edit</v-btn>
       <v-btn large to="/documents">List</v-btn>
     </div>
   </section>
