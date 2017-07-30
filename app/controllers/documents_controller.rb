@@ -20,6 +20,7 @@ class DocumentsController < ApplicationController
       doc.process
       puts "-----: #{doc.summary}"
       puts "-----: #{doc.title}"
+      @document.update(summary: doc.summary, title: @document.name)
       render json: @document.to_json, status: :ok
     else
       render json: @document.errors, status: :unprocessable_entity

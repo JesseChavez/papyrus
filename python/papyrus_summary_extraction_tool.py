@@ -11,6 +11,19 @@ import networkx as nx
 #pip install scipy
 #pip install networkx
 
+import zmq
+import json
+
+# ZeroMQ Context
+context = zmq.Context()
+
+# Define the socket using the "Context"
+sock = context.socket(zmq.REP)
+# sock.bind("tcp://127.0.0.1:5678")
+# sock.bind('ipc:///tmp/python_ruby')
+sock.bind('tcp://127.0.0.1:5555')
+
+
 #Taken from the user's uploaded PDF or URL, cleaned and formatted.
 title = ''
 
@@ -20,6 +33,8 @@ title = ''
 content = """
 
 """
+
+main_result = ''
 
 paragraphs = content.split('\n\n')
 
@@ -121,6 +136,8 @@ def function_1():
 				summary.append(i)
 	print title + '\n'
 	print "\n\n".join(summary)
+        global main_result
+        main_result = "\n".join(summary)
 	
 def function_2():
 	count_vect = CountVectorizer()
@@ -136,13 +153,36 @@ def function_2():
 	summary = [x[1] for x in ten_percent_high_scores] #Does not disturb the rank order, and overrides above summary.
 	print title + '\n'
 	print "\n\n".join(summary)
+        global main_result
+        main_result = "\n".join(summary)
 
-def main():
-	if len(re.findall('\$', content)) < 2: #With more time, I can properly classify the input doc as being facts and figures type or discussion/opinion type.
-		function_2()
-	else:
-		function_1()
-		
-if __name__ == "__main__": 
-	main()
+
+# Run a simple "Echo" server
+while True:
+    message = sock.recv()
+    data = json.loads(message)
+    content = data['text']
+    title = data['title']
+    print "Echo text: " + data['text']
+    print "Echo title: " + data['title']
+
+    paragraphs = content.split('\n\n')
+    if len(re.findall('\$', content)) < 2: #With more time, I can properly classify the input doc as being facts and figures type or discussion/opinion type.
+        function_2()
+    else:
+        function_1()
+
+    print "Echo text: " + data['text']
+    print "Echo title: " + data['title']
+    result = { 'text': main_result, 'title': title }
+    json_data = json.dumps(result)
+    sock.send(json_data)
+    #print "Echo: " + json_data
+
+
+
+# if len(re.findall('\$', content)) < 2: #With more time, I can properly classify the input doc as being facts and figures type or discussion/opinion type.
+#     function_2()
+# else:
+#     function_1()
 

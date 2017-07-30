@@ -12,7 +12,7 @@
             <v-icon>account_circle</v-icon>
           </v-list-tile-avatar>
           <v-list-tile-content>
-            <v-list-tile-title>Freddy Mercury</v-list-tile-title>
+            <v-list-tile-title>Guest user</v-list-tile-title>
           </v-list-tile-content>
           <v-list-tile-action>
             <v-btn icon @click.native.stop="mini = !mini">
